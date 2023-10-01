@@ -35,4 +35,10 @@ build/
 .vscode/
 
 ### Mac OS ###
-.DS_Store
+.DS_Store### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+out
+gen
