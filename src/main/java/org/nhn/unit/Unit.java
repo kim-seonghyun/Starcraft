@@ -1,14 +1,10 @@
 package org.nhn.unit;
 
 //Unit의 틀
-public abstract class Unit {
-    protected int atk;
+public class Unit {
+    private final int atk;
+    private int defense;
 
-    public void setDefense(int defense) {
-        this.defense = defense;
-    }
-
-    protected int defense;
 
     public int getAtk() {
         return this.atk;
@@ -18,13 +14,21 @@ public abstract class Unit {
         return this.defense;
     }
 
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
     protected Unit(int atk, int defense) {
         this.atk = atk;
         this.defense = defense;
     }
 
-    abstract public boolean attack(Unit unit);
-    abstract public boolean attacked(int damage);
+    public void attack(Unit unit) {
+        unit.attacked(this.getAtk());
+    }
 
-    abstract public boolean canFly();
+    public void attacked(int damage){
+        this.setDefense(this.getDefense() - damage);
+    }
+
 }

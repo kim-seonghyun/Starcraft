@@ -23,7 +23,9 @@ class testSrarcraft {
         Marine marine = new Marine();
         Wraith wraith = new Wraith();
 
-        Assertions.assertFalse(marine.attack(wraith));
+        Assertions.assertThrows(NullPointerException.class, ()->{
+            marine.attack(wraith);
+        });
     }
 
     @Test
@@ -31,9 +33,9 @@ class testSrarcraft {
     void testHydralisk() {
         Hydralisk hydralisk = new Hydralisk();
         Wraith wraith = new Wraith();
-        Assertions.assertTrue(hydralisk.attack(wraith));
+        hydralisk.attack(wraith);
+        Assertions.assertEquals(7, wraith.getDefense());
     }
-
     @Test
     @DisplayName("testHydraliskAttacksFlyableUnit_공격됐는지 확인함")
     void testHydralisk2() {
