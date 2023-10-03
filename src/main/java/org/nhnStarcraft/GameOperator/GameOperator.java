@@ -29,16 +29,8 @@ public class GameOperator {
         return units;
     }
 
-    public UnitOnField provideUnitOnField() throws IllegalArgumentException{
+    public UnitOnField provideUnitOnField(int tribe) throws IllegalArgumentException{
         UnitOnField unitOnField = null;
-        System.out.println("종족을 입력하세요 ->  Zerg : 0, Terran : 1, Protos: 2");
-        Scanner sc = new Scanner(System.in);
-        int tribe = sc.nextInt();
-
-        if (tribe < 0 || tribe > 2) {
-            throw new IllegalArgumentException("0에서 2사이의 숫자를 입력하세요");
-        }
-
         switch (tribe) {
             case 0: unitOnField = new UnitOnField(createZergUnit());break;
             case 1: unitOnField = new UnitOnField(createTerranUnit()); break;
@@ -50,10 +42,6 @@ public class GameOperator {
 
     public UnitOnField provideUnitOnFieldForComputer(int tribe) throws IllegalArgumentException{
         UnitOnField unitOnField = null;
-        if (tribe < 0 || tribe > 2) {
-            throw new IllegalArgumentException("0에서 2사이의 숫자를 입력하세요");
-        }
-
         switch (tribe) {
             case 0: unitOnField = new UnitOnField(createZergUnit());break;
             case 1: unitOnField = new UnitOnField(createTerranUnit()); break;

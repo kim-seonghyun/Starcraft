@@ -16,7 +16,7 @@ public class testGameOperator {
         System.setIn(in);
 
         GameOperator gameOperator = new GameOperator();
-        UnitOnField unit = gameOperator.provideUnitOnField();
+        UnitOnField unit = gameOperator.provideUnitOnField(2);
         Assertions.assertEquals(5, unit.getListSize());
     }
 }
